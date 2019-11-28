@@ -23,13 +23,13 @@ module.exports = {
        
     },
 
-    async show(req, res){
+    async list(req, res){
         const pokemons = await Pokemon.find({}, '_id name');
 
         return res.json(pokemons);
     },
 
-    async details(req, res){
+    async show(req, res){
         const { id } = req.params;
 
         const pokemon = await Pokemon.findById(id);
@@ -53,7 +53,7 @@ module.exports = {
         return res.json({"message": message});
     },
 
-    async edit(req, res){
+    async update(req, res){
         const { id } = req.params;
         
         let pokemon = await Pokemon.findById(id);

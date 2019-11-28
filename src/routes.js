@@ -14,16 +14,16 @@ routes.post('/logout', authMiddleware, SessionController.delete);
 
 routes.post('/users', UserController.store);
 
-routes.post('/users/edit',authMiddleware, UserController.edit);
+routes.post('/users/edit',authMiddleware, UserController.update);
+
+routes.get('/pokemons',  authMiddleware, PokemonController.list);
+
+routes.get('/pokemons/:id', authMiddleware, PokemonController.show);
 
 routes.post('/pokemons', authMiddleware, PokemonController.store);
 
-routes.get('/pokemons',  authMiddleware, PokemonController.show);
+routes.delete('/pokemons/:id', authMiddleware, PokemonController.delete);
 
-routes.get('/pokemons/:id', authMiddleware, PokemonController.details);
-
-routes.post('/pokemons/:id/delete', authMiddleware, PokemonController.delete);
-
-routes.post('/pokemons/:id/edit', authMiddleware, PokemonController.edit);
+routes.put('/pokemons/:id', authMiddleware, PokemonController.update);
 
 module.exports = routes;

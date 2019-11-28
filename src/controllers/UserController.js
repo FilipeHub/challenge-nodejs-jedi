@@ -32,7 +32,7 @@ module.exports = {
         }  
     },
 
-    async edit(req, res){
+    async update(req, res){
         try {
             const userId = req.userId;
             res.json({"id": userId});
