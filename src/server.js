@@ -7,8 +7,8 @@ const routes = require('./routes');
  
 const app = express();
  
-// mongoose.connect('mongodb://localhost/pokemons',
-mongoose.connect('mongodb+srv://ash-cation:euescolhovc@filipeserver-8wfhq.mongodb.net/pokemons?retryWrites=true&w=majority', 
+// mongoose.connect('mongodb+srv://ash-cation:euescolhovc@filipeserver-8wfhq.mongodb.net/pokemons?retryWrites=true&w=majority', 
+mongoose.connect('mongodb://localhost/pokemons',
     {useNewUrlParser:true,
     useCreateIndex: true,
     useUnifiedTopology: true});

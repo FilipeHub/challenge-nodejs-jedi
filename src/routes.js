@@ -14,7 +14,7 @@ routes.post('/logout', authMiddleware, SessionController.delete);
 
 routes.post('/users', UserController.store);
 
-routes.post('/users/edit',authMiddleware, UserController.update);
+routes.put('/users',authMiddleware, UserController.update);
 
 routes.get('/pokemons',  authMiddleware, PokemonController.list);
 
