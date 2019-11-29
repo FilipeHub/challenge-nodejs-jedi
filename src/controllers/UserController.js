@@ -35,8 +35,18 @@ module.exports = {
     async update(req, res){
         try {
             const userId = req.userId;
-            res.json({"id": userId});
             
+            const { name, email, password } = req.body;
+                        
+            let user = await User.findById(userId);
+
+            if(user){
+                user = await User.update({ name, email, password });
+            }
+
+            user.password = undefined;
+
+            return res.json(user);
         } catch (error) {
             return res.status(400).send({ error : "User edit failed"});
         }
