@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/server.js --ignore __tests__",
-    "test": "jest"
+    "test": "jest",
+    "docs": "apidoc -i ./ -e node_modules -o ./docs"
   },
   "dependencies": {
     "api-doc": "^4.0.3",

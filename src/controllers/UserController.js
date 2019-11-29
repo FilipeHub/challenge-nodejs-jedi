@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const authConfig = require('../config/auth.json');
 
 module.exports = {
+    
     async store(req, res) {
         try{
             const { name, email, password } = req.body;

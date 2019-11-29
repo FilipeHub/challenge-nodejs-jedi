@@ -1,6 +1,61 @@
 const Pokemon = require('../models/Pokemon');
 
 module.exports = {
+
+    /**
+     * @api {post} /pokemons Add a new Pokemon
+     * @apiName AddPokemon
+     * @apiGroup Pokemons
+     * 
+     * @apiParam {String} name Pokemon name, not unique
+     * @apiParam {String} description Pokemon description, not unique
+     * @apiParam {String} type Pokemon type, not unique
+     * @apiParam {Number} attack Pokemon attack, not unique
+     * @apiParam {Number} defense Pokemon defense, not unique
+     * @apiParam {Number} speed Pokemon speed, not unique
+     * @apiParam {String} abilities String of the abilities of the Pokemon separeted by comma, not unique
+     * 
+     * @apiParamExample JSON Body Example:
+     * { 
+     *       "name": "pikachu",
+     *       "description" : " Electric mouse", 
+     *       "type": "Electric", 
+     *       "attack": 40, 
+     *       "defense" : 30, 
+     *       "speed": 50, 
+     *       "health": 55,
+     *       "abilities": "super-speed, thunder"
+     *  }
+     * 
+     * @apiSuccess {Number} _id Pokemon id.
+     * @apiSuccess {String} name Pokemon name.
+     * @apiSuccess {String} description Pokemon description.
+     * @apiSuccess {String} type Pokemon type.
+     * @apiSuccess {Number} attack Pokemon attack.
+     * @apiSuccess {Number} defense Pokemon defense.
+     * @apiSuccess {Number} speed Pokemon speed.
+     * @apiSuccess {String[]} abilities Array of the abilities of the Pokemon. 
+     * 
+     * @apiSuccessExample Successful Response:
+     * HTTP/1.1 200 OK
+     * 
+     * {
+     *  "_id": "5ddfa6bb8fd756266051cc62",
+     *  "name": "pikachu",
+     *  "description": " Electric mouse",
+     *  "type": "Eletric",
+     *  "attack": 40,
+     *  "defense": 30,
+     *  "speed": 50,
+     *  "health": 55,
+     *  "abilities": [
+     *     "super-speed",
+     *     "thumder"
+     *  ],
+     *  "__v": 0
+     *  }   
+     * 
+     */
     async store(req, res) {
         try {
             const { name, description, type, attack, defense, speed, health, abilities } = req.body;
@@ -27,6 +82,11 @@ module.exports = {
         }
     },
 
+    /**
+     * @api {get} /pokemons Get the basic pokemons informations
+     * @apiName GetPokemons
+     * @apiGroup Pokemons
+     */
     async list(req, res){
         try {
             const pokemons = await Pokemon.find({}, '_id name');
@@ -39,6 +99,42 @@ module.exports = {
 
     },
 
+    /**
+     * @api {get} /pokemons/:id Get all the pokemons' informations
+     * @apiName GetPokemon
+     * @apiGroup Pokemons
+     * 
+     * @apiParam {Number} id Pokemon id
+     * 
+     * @apiSuccess {Number} _id Pokemon id.
+     * @apiSuccess {String} name Pokemon name.
+     * @apiSuccess {String} description Pokemon description.
+     * @apiSuccess {String} type Pokemon type.
+     * @apiSuccess {Number} attack Pokemon attack.
+     * @apiSuccess {Number} defense Pokemon defense.
+     * @apiSuccess {Number} speed Pokemon speed.
+     * @apiSuccess {String[]} abilities Array of the abilities of the Pokemon. 
+     * 
+     * @apiSuccessExample Successful Response:
+     * HTTP/1.1 200 OK
+     * 
+     * {
+     *  "_id": "5ddfa6bb8fd756266051cc62",
+     *  "name": "pikachu",
+     *  "description": " Electric mouse",
+     *  "type": "Electric",
+     *  "attack": 40,
+     *  "defense": 30,
+     *  "speed": 50,
+     *  "health": 55,
+     *  "abilities": [
+     *     "super-speed",
+     *     "thumder"
+     *  ],
+     *  "__v": 0
+     *  }   
+     * 
+     */
     async show(req, res){
         try {
             const { id } = req.params;
