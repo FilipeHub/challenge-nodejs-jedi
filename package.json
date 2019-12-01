@@ -20,5 +20,14 @@
   "devDependencies": {
     "jest": "^24.9.0",
     "nodemon": "^2.0.1"
+  },
+  "apidoc" :{
+    "name": "Challenge NodeJS - Pokedex",
+    "version": "1.0.0",
+    "description": "Represents a pokedex system with pokemons' information",
+    "apidoc": {
+      "title": "Challenge NodeJS - Pokedex",
+      "url" : "https://github.com/FilipeHub/challenge-nodejs"
+  }
   }
 }

@@ -10,8 +10,6 @@ const routes = express.Router();
 
 routes.post('/login', SessionController.store);
 
-routes.post('/logout', authMiddleware, SessionController.delete);
-
 routes.post('/users', UserController.store);
 
 routes.put('/users',authMiddleware, UserController.update);

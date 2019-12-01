@@ -1,13 +1,13 @@
 {
-  "name": "pokemons-backend",
+  "name": "Challenge NodeJS - Pokedex",
   "version": "1.0.0",
-  "description": "",
+  "description": "Represents a pokedex system with pokemons' information",
+  "apidoc": "0.3.0",
   "sampleUrl": false,
   "defaultVersion": "0.0.0",
-  "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2019-11-29T17:43:22.586Z",
+    "time": "2019-12-01T00:39:47.714Z",
     "url": "http://apidocjs.com",
     "version": "0.18.0"
   }
