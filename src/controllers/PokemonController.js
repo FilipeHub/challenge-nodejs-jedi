@@ -332,7 +332,7 @@ module.exports = {
                 pokemon.abilities = abilities;
                 pokemon.user = user_id;
                 
-                pokemon.save();
+                await pokemon.save();
 
                 return res.json({pokemon});
             }else{
@@ -390,7 +390,7 @@ module.exports = {
             const { id } = req.params;
             const user_id = req.userId;
 
-            const pokemon = await Pokemon.findOne({_id : id, user: user_id});
+            const pokemon = await Pokemon.findOne({_id: id, user: user_id });
 
             if(pokemon){
                 await Pokemon.deleteOne({ _id : id, user: user_id});

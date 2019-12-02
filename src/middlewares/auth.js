@@ -1,5 +1,9 @@
+require('dotenv').config({  
+    path: process.env.NODE_ENV === "test" ? ".env.testing" : ".env"
+});
+
 const jwt = require('jsonwebtoken');
-const authConfig = require('../config/auth.json');
+
 
 /**
  * @api {_} /_ Authenticated routes
@@ -73,7 +77,7 @@ module.exports = (req, res, next) => {
         return res.status(401).send({error: "It is not a Bearer Token"});
     }
 
-    jwt.verify(token, authConfig.secret, (err, decoded) => {
+    jwt.verify(token, process.env.SECRET, (err, decoded) => {
         if(err){
             return res.status(401).send({error: "Token invalid"});
         }

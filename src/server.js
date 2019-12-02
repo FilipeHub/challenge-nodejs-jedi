@@ -1,20 +1,16 @@
-const express = require('express');
+require('dotenv').config({  
+    path: process.env.NODE_ENV === "test" ? ".env.testing" : ".env"
+});
+
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
- 
- 
-const routes = require('./routes');
- 
-const app = express();
- 
+
+const app = require('./app');
+
 //mongoose.connect('mongodb://localhost/pokemons',
-mongoose.connect('mongodb+srv://ash-cation:euescolhovc@filipeserver-8wfhq.mongodb.net/pokemons?retryWrites=true&w=majority', 
+mongoose.connect(process.env.DB_CONNECTION, 
     {useNewUrlParser:true,
     useCreateIndex: true,
     useUnifiedTopology: true});
- 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(routes);
- 
-app.listen('3333');
+
+
+app.listen(process.env.PORT);

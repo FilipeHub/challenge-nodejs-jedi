@@ -1,7 +1,9 @@
+require('dotenv').config({  
+    path: process.env.NODE_ENV === "test" ? ".env.testing" : ".env"
+});
+
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
-
-const authConfig = require('../config/auth.json');
 
 module.exports = {
     
@@ -79,8 +81,8 @@ module.exports = {
                 user.password = undefined;
 
                 //creating the token
-                const token = jwt.sign({id: user._id}, authConfig.secret, {
-                    expiresIn: authConfig.expiration_time //in milesecs
+                const token = jwt.sign({id: user._id}, process.env.SECRET, {
+                    expiresIn: process.env.EXPIRATION_TIME
                 });
 
                 res.json({user, token});
@@ -166,7 +168,7 @@ module.exports = {
                 user.email = email
                 user.password = password;
 
-                user.save();
+                await user.save();
             }else{
                 return res.status(400).send({ error : "User doesn't exists"});
             }
