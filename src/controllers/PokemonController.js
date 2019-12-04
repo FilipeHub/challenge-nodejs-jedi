@@ -78,10 +78,7 @@ module.exports = {
             const { name, description, type, attack, defense, speed, health, abilities } = req.body;
             const user_id = req.userId;
             
-            let pokemon = await Pokemon.findOne({name});
-     
-            if(!pokemon){
-                pokemon = await Pokemon.create(
+            const pokemon = await Pokemon.create(
                     { name,
                       description, 
                       type, 
@@ -92,8 +89,8 @@ module.exports = {
                       user: user_id,
                       abilities: abilities.split(',').map(ability => ability.trim())
                     });
-                };
-                
+
+              
             return res.json(pokemon);
            
         } catch (error) {

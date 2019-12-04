@@ -63,10 +63,12 @@ $ yarn docs
 ## Built With
 
 - [NodeJS](https://nodejs.org/en/) - Build the server
-- [body-Parser](https://github.com/expressjs/body-parser#readme) - Node.js body parsing middleware
 - [express](https://expressjs.com/) - Router of the Application
 - [MongoDB](https://www.mongodb.com/) - Database
 - [mongoose](https://mongoosejs.com/) - Object Modeling + DB Connector
 - [nodemon](https://nodemon.io/) - Process Manager used in the development
 - [JEST](https://jestjs.io/) - Tests
+- [body-Parser](https://github.com/expressjs/body-parser#readme) - Node.js body parsing middleware
+- [JWT]https://www.npmjs.com/package/jsonwebtoken) - JsonWebToken for Node.js
 
+-

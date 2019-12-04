@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 const app = require('./app');
 
-//mongoose.connect('mongodb://localhost/pokemons',
+// 'mongodb://localhost/pokemons'
 mongoose.connect(process.env.DB_CONNECTION, 
     {useNewUrlParser:true,
     useCreateIndex: true,
