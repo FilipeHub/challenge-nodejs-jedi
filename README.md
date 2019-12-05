@@ -2,7 +2,7 @@
 
 ## About this project
 
-This project represents the API of a Pokedex system, where the user (pokemon trainer) could:
+It's a RESTful API built with NodeJS, Express and MongoDB, that represents the API of a Pokedex system, where the user (pokemon trainer) could:
 - Register himself 
 - Do the Login
 
@@ -52,13 +52,22 @@ $ yarn dev
 
 ### Documentation
 
-You can se the documentation of the system's endpoints in the /docs/index.html file
+You can se the documentation of the system's endpoints in the **/docs/index.html file**
 
 To generate new documentation files
 
 ```
 $ yarn docs
 ```
+
+### Test
+
+To run the tests 
+
+```
+$ yarn test
+```
+
 
 ## Built With
 
@@ -69,6 +78,11 @@ $ yarn docs
 - [nodemon](https://nodemon.io/) - Process Manager used in the development
 - [JEST](https://jestjs.io/) - Tests
 - [body-Parser](https://github.com/expressjs/body-parser#readme) - Node.js body parsing middleware
-- [JWT]https://www.npmjs.com/package/jsonwebtoken) - JsonWebToken for Node.js
+- [JWT](https://www.npmjs.com/package/jsonwebtoken) - JsonWebToken for Node.js
+- [apiDocs](https://apidocjs.com/) - documentation for RESTful web APIs
+- [Insominia](https://insomnia.rest) - Simulate the routes (get, post, put and delete)
+- [DotEnv](https://www.npmjs.com/package/dotenv) - manipulate environment variables
 
--
+## Contact
+
+If you have any doubt, suggestion or want to chat with me, you can contact me in my email **filipencavalcante@gmail.com**
