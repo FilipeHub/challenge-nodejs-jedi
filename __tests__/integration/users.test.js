@@ -29,14 +29,19 @@ beforeAll(async () => {
 });
 
 afterEach(async () => {
-    await User.collection.drop();
+    try {
+        await User.collection.drop();
+    } catch (error) {
+        console.warn('Try to drop an inexistent collection: User');
+    }
 });
+
 
 afterAll(async () => {
     mongoose.disconnect();
 });
 
-describe('/POST in /users', () => {
+describe('/POST in /users', async () => {
 
     it('should crate a new user', async () =>{
         const response = await request(app).post('/users').send(userInfo);
@@ -58,7 +63,7 @@ describe('/POST in /users', () => {
 
 });
 
-describe('/PUT in /users', () => {
+describe('/PUT in /users', async () => {
     
     
     it('should edit a user that exists in the database', async () =>{
