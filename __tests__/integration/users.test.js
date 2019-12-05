@@ -28,11 +28,11 @@ beforeAll(async () => {
 
 });
 
-afterEach(() => {
-    User.collection.drop();
+afterEach(async () => {
+    await User.collection.drop();
 });
 
-afterAll(() => {
+afterAll(async () => {
     mongoose.disconnect();
 });
 
@@ -45,6 +45,7 @@ describe('/POST in /users', () => {
         expect(response.body.user.name).toBe(userInfo.name);
         expect(response.body.user.email).toBe(userInfo.email);
         expect(response.body.user.password).toBe(undefined);
+        
     });
 
     it('should not create a new user because it already exists in the database', async () =>{
@@ -77,6 +78,7 @@ describe('/PUT in /users', () => {
         expect(responseUpdate.body.name).toBe(userInfo.name);
         expect(responseUpdate.body.email).toBe(userInfo.email);
         expect(responseUpdate.body.password).toBe(undefined);
+        
     });
 
 });

@@ -393,7 +393,7 @@ module.exports = {
                 await Pokemon.deleteOne({ _id : id, user: user_id});
                 return res.json({"message": 'The Pokemon was successfuly removed.'});
             }else{
-                message = "Doesn't exist this pokemon for this user";
+                return res.status(400).send({error: "Doesn't exist this pokemon for this user"});
             }          
             
         } catch (error) {
