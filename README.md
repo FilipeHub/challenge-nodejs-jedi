@@ -3,16 +3,16 @@
 ## About this project
 
 It's a RESTful API built with NodeJS, Express and MongoDB, that represents the API of a Pokedex system, where the user (pokemon trainer) could:
-- Register himself 
-- Do the Login
+- Register himself *(POST /users)*
+- Do the Login *(POST /login)*
 
 And when he is logged on he could:
-- Edit his informations
-- Create a pokemon
-- Delete a pokemon
-- Edit a pokemon
-- Show the list of his pokemons
-- Show the details of one of his pokemons
+- Edit his informations *(PUT /users)*
+- Create a pokemon *(POST /pokemons)*
+- Delete a pokemon *(DELETE /pokemons/:id)*
+- Edit a pokemon *(PUT /pokemons/:id)*
+- Show the list of his pokemons *(GET /pokemons)*
+- Show the details of one of his pokemons *(GET /pokemons/:id)*
 
 ## Why?
 
@@ -30,7 +30,7 @@ To run this project in the development mode, you'll need to have a basic environ
 
 ```
 $ git clone https://github.com/FilipeHub/challenge-nodejs.git
-
+mongodb+srv://ash-cation:euescolhovc@filipeserver-8wfhq.mongodb.net/pokemons?retryWrites=true&w=majority
 ```
 
 **Installing dependencies**
@@ -85,4 +85,4 @@ $ yarn test
 
 ## Contact
 
-If you have any doubt, suggestion or want to chat with me, you can contact me in my email **filipencavalcante@gmail.com**
+If you have any doubt, suggestion or want to chat with me, you can contact me in my email *filipencavalcante@gmail.com*

@@ -41,29 +41,29 @@ afterAll(async () => {
     mongoose.disconnect();
 });
 
-describe('/POST in /users', async () => {
+describe('/POST in /users', () => {
 
-    it('should crate a new user', async () =>{
-        const response = await request(app).post('/users').send(userInfo);
+    it('should create a new user', async () =>{
+        const {body, status} = await request(app).post('/users').send(userInfo);
         
-        expect(response.status).toBe(200);
-        expect(response.body.user.name).toBe(userInfo.name);
-        expect(response.body.user.email).toBe(userInfo.email);
-        expect(response.body.user.password).toBe(undefined);
+        expect(status).toBe(200);
+        expect(body.user.name).toBe(userInfo.name);
+        expect(body.user.email).toBe(userInfo.email);
+        expect(body.user.password).toBe(undefined);
         
     });
 
     it('should not create a new user because it already exists in the database', async () =>{
         await request(app).post('/users').send(userInfo);
-        const response = await request(app).post('/users').send(userInfo);
+        const {body} = await request(app).post('/users').send(userInfo);
 
-        expect(response.error.text).toBe('{"error":"User already exists"}');
+        expect(body.error).toBe("User already exists");
     });
 
 
 });
 
-describe('/PUT in /users', async () => {
+describe('/PUT in /users', () => {
     
     
     it('should edit a user that exists in the database', async () =>{
@@ -74,15 +74,15 @@ describe('/PUT in /users', async () => {
                  
         const userToken = responseCreate.body.token;
 
-        const responseUpdate = await request(app).put('/users').
+        const {body, status} = await request(app).put('/users').
         send(userInfo).set('Authorization', 'bearer ' + userToken);
         
         
-        expect(responseUpdate.status).toBe(200);
+        expect(status).toBe(200);
         
-        expect(responseUpdate.body.name).toBe(userInfo.name);
-        expect(responseUpdate.body.email).toBe(userInfo.email);
-        expect(responseUpdate.body.password).toBe(undefined);
+        expect(body.name).toBe(userInfo.name);
+        expect(body.email).toBe(userInfo.email);
+        expect(body.password).toBe(undefined);
         
     });
 

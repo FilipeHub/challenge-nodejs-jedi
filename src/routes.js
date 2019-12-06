@@ -16,12 +16,16 @@ routes.put('/users',authMiddleware, UserController.update);
 
 routes.get('/pokemons',  authMiddleware, PokemonController.list);
 
-routes.get('/pokemons/:id', authMiddleware, PokemonController.show);
+routes.get('/pokauthemons/:id', authMiddleware, PokemonController.show);
 
 routes.post('/pokemons', authMiddleware, PokemonController.store);
 
 routes.delete('/pokemons/:id', authMiddleware, PokemonController.delete);
 
 routes.put('/pokemons/:id', authMiddleware, PokemonController.update);
+
+routes.get('*', (req, res) => {
+    res.status(404).send({error : 'Route Not Found'});
+  });
 
 module.exports = routes;
