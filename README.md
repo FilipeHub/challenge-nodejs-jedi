@@ -2,7 +2,7 @@
 
 ## About this project
 
-It's a RESTful API built with NodeJS and Express, that represents the anwsers of the https://github.com/FilipeHub/challenge-nodejs-jedi.git 
+It's a RESTful API built with NodeJS and Express.
 
 ## Why?
 
