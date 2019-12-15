@@ -115,8 +115,7 @@ function getJsonByStatus(file){
             response[status] = [];
         }
         response[status].push(object);    
-    }   
-
+    }
     return response;
 }
 
