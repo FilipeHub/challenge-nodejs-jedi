@@ -1,13 +1,13 @@
 {
-  "name": "Challenge NodeJS - Pokedex",
+  "name": "Challenge Jedi",
   "version": "1.0.0",
-  "description": "Represents a pokedex system with pokemons' information",
+  "description": "Routes of the Challenge Jedi",
   "apidoc": "0.3.0",
   "sampleUrl": false,
   "defaultVersion": "0.0.0",
   "generator": {
     "name": "apidoc",
-    "time": "2019-12-05T23:26:05.704Z",
+    "time": "2019-12-15T01:25:52.033Z",
     "url": "http://apidocjs.com",
     "version": "0.18.0"
   }

@@ -24,12 +24,12 @@
     "supertest": "^4.0.2"
   },
   "apidoc": {
-    "name": "Challenge NodeJS - Pokedex",
+    "name": "Challenge Jedi",
     "version": "1.0.0",
-    "description": "Represents a pokedex system with pokemons' information",
+    "description": "Routes of the Challenge Jedi",
     "apidoc": {
-      "title": "Challenge NodeJS - Pokedex",
-      "url": "https://github.com/FilipeHub/challenge-nodejs"
+      "title": "Challenge Jedi",
+      "url": "https://github.com/FilipeHub/challenge-nodejs-jedi"
     }
   }
 }

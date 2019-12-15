@@ -1,28 +1,16 @@
 const express = require('express');
 
-const PokemonController = require('./controllers/PokemonController');
-const UserController = require('./controllers/UserController');
-const SessionController = require('./controllers/SessionController');
-
-const authMiddleware = require('./middlewares/auth');
+const ChaoticController = require('./controllers/ChaoticController');
 
 const routes = express.Router();
 
-routes.post('/login', SessionController.store);
+routes.get('/api/v2/order-by-status', ChaoticController.getByStatus);
 
-routes.post('/users', UserController.store);
+routes.get('/api/v2/order-total/:status', ChaoticController.getTotalValeuOfStatus);
 
-routes.put('/users',authMiddleware, UserController.update);
+routes.get('/api/v2/order-major-values', ChaoticController.getAllStatusOrdedByTotalAmount);
 
-routes.get('/pokemons',  authMiddleware, PokemonController.list);
-
-routes.get('/pokauthemons/:id', authMiddleware, PokemonController.show);
-
-routes.post('/pokemons', authMiddleware, PokemonController.store);
-
-routes.delete('/pokemons/:id', authMiddleware, PokemonController.delete);
-
-routes.put('/pokemons/:id', authMiddleware, PokemonController.update);
+routes.get('/api/v2/group-by-country', ChaoticController.getByCountry);
 
 routes.get('*', (req, res) => {
     res.status(404).send({error : 'Route Not Found'});
