@@ -60,6 +60,7 @@ $ yarn docs
 - [body-Parser](https://github.com/expressjs/body-parser#readme) - Node.js body parsing middleware
 - [apiDocs](https://apidocjs.com/) - documentation for RESTful web APIs
 - [Insominia](https://insomnia.rest) - Simulate the routes (get, post, put and delete)
+- [DotEnv](https://www.npmjs.com/package/dotenv) - manipulate environment variables
 
 ## Contact
 
